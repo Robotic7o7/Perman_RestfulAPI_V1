@@ -1,0 +1,72 @@
+const mongoose = require('mongoose')
+
+const roleSchema = mongoose.Schema({
+   client_id:{
+       type:String,
+       required:true,
+   },
+   client_display_id:{
+       type:String,
+       required:true,
+   },
+   client_name:{
+    type:String,
+    required:true,
+    },
+    contact_number:{
+        type:number,
+        required:true,
+    },
+    address:{
+        type:String,
+        required:true,
+   },
+   poc:{
+    type:String,
+    required:true,
+},
+poc_no:{
+    type:number,
+    required:true,
+},
+spoc:{
+    type:String,
+    required:true,
+},
+spoc_no:{
+    type:number,
+    required:true,
+},
+category_id:{
+    type:String,
+    required:true,
+},
+created_by:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:"User",
+    required:true
+},
+updated_by:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:"User",
+},
+deleted_by:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:"User",
+},
+created_date:{
+    type:Date,
+    default:Date.now()
+},
+updated_date:{
+    type:Date
+},
+deleted_date:{
+    type:Date
+},
+status:{
+    type:String
+}
+})
+
+module.exports = mongoose.model('Client', clientSchema)
